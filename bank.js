@@ -1,54 +1,71 @@
-//deposite balance
-document.getElementById('deposite-button').addEventListener('click', function () {
-    //get deposite area and calculate deposite
-    let previousDepsite = document.getElementById('deposite');
 
-    //get deposite input
-    let newDeposite = document.getElementById('deposite-balance');
-
+//get input value for all
+function getInput(idName) {
+    //get deposit input
+    let inputFeild = document.getElementById(idName);
     //convarting into number
-    let previousDepsiteAmount = parseFloat(previousDepsite.innerText);
-    let newDepositeAmount = parseFloat(newDeposite.value);
-
-    //adding deposite
-    previousDepsite.innerText = previousDepsiteAmount + newDepositeAmount;
-
-    // update Balance area and calculate balance
+    let inputAmount = parseFloat(inputFeild.value);
+    //clear input feild
+    inputFeild.value = '';
+    return inputAmount;
+}
+//get deposit and withdraw area
+function updateAllArea(idName, inputAmount) {
+    //get area 
+    let area = document.getElementById(idName);
+    //convarting into number
+    let areaValue = parseFloat(area.innerText);
+    //adding deposit
+    area.innerText = areaValue + inputAmount;
+}
+//update balance
+function updateBalance(inputAmount, isAdd) {
+    //get balance area
     let previousBalance = document.getElementById('balance');
     //convert into number
     let previousBalanceAmount = parseFloat(previousBalance.innerText);
     //adding balance 
-    previousBalance.innerText = previousBalanceAmount + newDepositeAmount;
+    if (isAdd == true) {
+        previousBalance.innerText = previousBalanceAmount + inputAmount;
+    }
+    else {
+        previousBalance.innerText = previousBalanceAmount - inputAmount;
+    }
+}
 
-    //clear input feild
-    newDeposite.value = '';
+
+//deposit balance
+document.getElementById('deposit-button').addEventListener('click', function () {
+    //get deposit input
+    let newdepositAmount = getInput('deposit-balance');
+    //check the value
+    if (newdepositAmount > 0) {
+        //get deposit area
+        updateAllArea('deposit', newdepositAmount);
+
+        // update Balance
+        updateBalance(newdepositAmount, true);
+    }
 });
 
 
 //withdraw balance
 
 document.getElementById('withdraw-button').addEventListener('click', function () {
-    //get withdraw area
-    let previousWithdraw = document.getElementById('withdraw');
-
     //get withdraw input
-    let newWithdraw = document.getElementById('withdraw-balance');
-
-    //convert into number
-    let previousWithdrawAmount = parseFloat(previousWithdraw.innerText);
-    let newWithdrawAmount = parseFloat(newWithdraw.value);
-
-    //adding withdraw
-    previousWithdraw.innerText = previousWithdrawAmount + newWithdrawAmount;
-
-    //update balance
+    let newWithdrawAmount = getInput('withdraw-balance');
+    //check the value
+    //get balance for checking
     let previousBalance = document.getElementById('balance');
-    //convert into number
     let previousBalanceAmount = parseFloat(previousBalance.innerText);
-    //adding balance 
-    previousBalance.innerText = previousBalanceAmount - newWithdrawAmount;
 
-    //clear input feild
-    newWithdraw.value = '';
+    if (newWithdrawAmount > 0 && newWithdrawAmount < previousBalanceAmount) {
+        //get withdraw area
+        updateAllArea('withdraw', newWithdrawAmount);
+
+        //update balance
+        updateBalance(newWithdrawAmount, false);
+    }
+
 });
 
