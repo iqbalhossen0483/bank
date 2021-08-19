@@ -40,11 +40,15 @@ document.getElementById('deposit-button').addEventListener('click', function () 
     let newdepositAmount = getInput('deposit-balance');
     //check the value
     if (newdepositAmount > 0) {
+        document.getElementById('warming-deposit').style.display = 'none';
         //get deposit area
         updateAllArea('deposit', newdepositAmount);
 
         // update Balance
         updateBalance(newdepositAmount, true);
+    }
+    else {
+        document.getElementById('warming-deposit').style.display = 'block';
     }
 });
 
@@ -60,11 +64,15 @@ document.getElementById('withdraw-button').addEventListener('click', function ()
     let previousBalanceAmount = parseFloat(previousBalance.innerText);
 
     if (newWithdrawAmount > 0 && newWithdrawAmount < previousBalanceAmount) {
+        document.getElementById('warming-withdraw').style.display = 'none';
         //get withdraw area
         updateAllArea('withdraw', newWithdrawAmount);
 
         //update balance
         updateBalance(newWithdrawAmount, false);
+    }
+    else {
+        document.getElementById('warming-withdraw').style.display = 'block';
     }
 
 });

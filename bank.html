@@ -8,9 +8,16 @@
     <title>Amar Bank</title>
     <!-- tailwind css -->
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/49747da1d2.js" crossorigin="anonymous"></script>
     <style>
         * {
             box-sizing: border-box;
+        }
+
+        #warming-deposit,
+        #warming-withdraw {
+            display: none;
         }
     </style>
 </head>
@@ -39,6 +46,11 @@
         <!-- balance input area  -->
         <section class="lg:grid lg:grid-cols-2 lg:gap-4 mt-8 w-3/4 mx-auto">
             <div class="bg-blue-200 p-4">
+                <p id="warming-deposit" class="text-center bg-red-200 w-3/4 lg:w-2/4 mx-auto rounded text-red-500 p-1">
+                    <i class="fas fa-exclamation-triangle"></i> Please enter
+                    a valid
+                    amount
+                </p>
                 <h1 class="text-2xl font-semibold text-center">deposit balance</h1>
                 <div class="text-xl">
                     <input
@@ -52,6 +64,11 @@
             </div>
 
             <div class="bg-blue-200 p-4 mt-4 lg:mt-0">
+                <p id="warming-withdraw" class="text-center bg-red-200 w-3/4 lg:w-2/4 mx-auto rounded text-red-500 p-1">
+                    <i class="fas fa-exclamation-triangle"></i> Please enter
+                    a valid
+                    amount
+                </p>
                 <h1 class="text-2xl font-semibold text-center">Withdraw balance</h1>
                 <div class="text-xl">
                     <input
