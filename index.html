@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bank</title>
+    <!-- tailwind css -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h2 class="text-5xl font-bold text-pink-500 text-center p-8">Amar Bank</h2>
+    </header>
+    <main>
+        <section class="mx-auto w-80 bg-red-200 p-5 rounded mt-20">
+            <header>
+                <h3 class="text-3xl font-semibold text-center">Log in</h3>
+            </header>
+            <div>
+                <input class="border rounded px-2 w-3/4 mx-auto block my-3 focus:outline-none focus:border-gray-500"
+                    type="email" name="user-email" id="user-email" placeholder="Enter your email">
+
+                <input class="border rounded px-2 w-3/4 mx-auto block my-3 focus:outline-none focus:border-gray-500"
+                    type="password" name="user-password" id="user-password" placeholder="Enter your password">
+
+                <input class="border rounded px-2 w-3/4 mx-auto block my-3 font-semibold" type="button"
+                    id="login-button" value="Log in">
+
+            </div>
+
+        </section>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amar Bank</title>
+    <!-- tailwind css -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="text-4xl text-center font-semibold bg-blue-300 p-12">
+        <h1>Dashboard</h1>
+    </header>
+    <main>
+        <section class="mt-8 w-3/4 mx-auto lg:grid lg:grid-cols-3 lg:gap-4">
+
+            <div class="bg-blue-200 p-10 text-center rounded">
+                <h2 class="text-2xl font-semibold">Deposite</h2>
+                <p>$<span id="deposite">0.00</span></p>
+            </div>
+            <div class="bg-green-200 p-10 text-center rounded my-4 lg:my-0">
+                <h2 class="text-2xl font-semibold">Withdraw</h2>
+                <p>$<span id="withdraw">0.00</span></p>
+            </div>
+            <div class="bg-yellow-200 p-10 text-center rounded">
+                <h2 class="text-2xl font-semibold">Balance</h2>
+                <p>$<span id="balance">0.00</span></p>
+            </div>
+        </section>
+
+        <!-- balance input area  -->
+        <section class="lg:grid lg:grid-cols-2 lg:gap-4 mt-8 w-3/4 mx-auto">
+            <div class="bg-blue-200 p-4">
+                <h1 class="text-2xl font-semibold text-center">Deposite balance</h1>
+                <div>
+                    <input class="border rounded px-2 w-3/4 mx-auto block my-3 focus:outline-none focus:border-gray-500"
+                        type="number" name="deposite-balance" id="deposite-balance"
+                        placeholder="$ Amount you want to deposite">
+
+                    <input class="border rounded px-2 w-3/4 mx-auto block my-3 font-semibold" type="button"
+                        id="deposite-button" value="Deposite">
+                </div>
+            </div>
+
+            <div class="bg-blue-200 p-4 mt-4 lg:mt-0">
+                <h1 class="text-2xl font-semibold text-center">Withdraw balance</h1>
+                <div>
+                    <input class="border rounded px-2 w-3/4 mx-auto block my-3 focus:outline-none focus:border-gray-500"
+                        type="number" name="withdraw-balance" id="withdraw-balance"
+                        placeholder="$ Amount you want to withdraw">
+
+                    <input class="border rounded px-2 w-3/4 mx-auto block my-3 font-semibold" type="button"
+                        id="withdraw-button" value="Withdraw">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="bank.js"></script>
+</body>
+
+</html>
