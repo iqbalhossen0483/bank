@@ -34,6 +34,17 @@ function updateBalance(inputAmount, isAdd) {
 }
 
 
+//click by enter key
+function pressEnter(inputFeildName, buttonName) {
+    document.getElementById(inputFeildName).addEventListener('keyup', function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById(buttonName).click();
+        }
+    });
+}
+
+pressEnter('deposit-balance', 'deposit-button');
 //deposit balance
 document.getElementById('deposit-button').addEventListener('click', function () {
     //get deposit input
@@ -53,8 +64,8 @@ document.getElementById('deposit-button').addEventListener('click', function () 
 });
 
 
+pressEnter('withdraw-balance', 'withdraw-button');
 //withdraw balance
-
 document.getElementById('withdraw-button').addEventListener('click', function () {
     //get withdraw input
     let newWithdrawAmount = getInput('withdraw-balance');
